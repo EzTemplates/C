@@ -1,3 +1,9 @@
+# PREFIX is environment variable, but if it is not set, then set default value
+ifeq ($(PREFIX),)
+    PREFIX := /usr/local
+endif
+
+
 TARGET = BINARY_NAME
 
 CSOURCES = $(shell find src -name \*.c)
@@ -38,3 +44,9 @@ clean:
 .PHONY: ignore
 ignore:
 	@printf "/obj/\n/$(TARGET)\n" >.gitignore
+
+
+.PHONY: install
+install: $(TARGET)
+	install -d $(DESTDIR)$(PREFIX)/bin/
+	install -m 755 $(TARGET) $(DESTDIR)$(PREFIX)/bin/
