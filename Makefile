@@ -18,6 +18,7 @@ CXX ?= clang++
 
 CFLAGS = -O3
 CXXFLAGS = -O3
+LDFLAGS = 
 INC = -Iinclude/
 
 
