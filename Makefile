@@ -51,3 +51,7 @@ ignore:
 install: $(TARGET)
 	install -d $(DESTDIR)$(PREFIX)/bin/
 	install -m 755 $(TARGET) $(DESTDIR)$(PREFIX)/bin/
+
+.PHONY: run
+run: $(TARGET)
+	./$(TARGET) $(RUNARGS)
